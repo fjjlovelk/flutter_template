@@ -7,15 +7,17 @@ import 'package:flutter_template/models/user_model.dart';
 
 class UserApi {
   /// 获取验证码
-  static Future<String> getCaptchaApi(int data) async {
-    var response = await HttpService().get("/sys/randomImage/$data");
+  static Future<String> getCaptchaApi() async {
+    var response = await HttpService().get("/sys/randomImage");
     return response['result'] ?? "";
   }
 
   /// 登录
   static Future<UserModel> loginApi(Map<String, dynamic> data) async {
-    var response = await HttpService().post('/sys/mLogin', data: data);
-    return UserModel.fromJson(response?['result'] ?? json.encode({}));
+    // var response = await HttpService().post('/sys/mLogin', data: data);
+    // return UserModel.fromJson(response?['result'] ?? json.encode({}));
+    UserModel userModel = UserModel(id: '111', name: '222', token: '333');
+    return userModel;
   }
 
   /// 退出登录

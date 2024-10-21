@@ -1,3 +1,4 @@
+import 'package:flutter_template/pages/home_tabs/binding.dart';
 import 'package:flutter_template/pages/home_tabs/view.dart';
 import 'package:flutter_template/pages/login/binding.dart';
 import 'package:flutter_template/pages/login/view.dart';
@@ -28,6 +29,7 @@ class AppPages {
     GetPage(
       name: AppRoutes.homeTabs,
       page: () => const HomeTabsPage(),
+      binding: HomeTabsBinding(),
       middlewares: [AuthMiddleware()],
     ),
   ];
