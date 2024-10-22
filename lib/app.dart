@@ -29,6 +29,7 @@ class App extends StatelessWidget {
             splashColor: Colors.transparent,
             appBarTheme: const AppBarTheme(
               centerTitle: true,
+              elevation: 0,
               scrolledUnderElevation: 0,
               // backgroundColor: Color(0xffF1F1F1),
               backgroundColor: Colors.white,

@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_template/pages/home_tabs_home/view.dart';
+import 'package:flutter_template/pages/home_tabs_message/view.dart';
+import 'package:flutter_template/pages/home_tabs_mine/view.dart';
 import 'package:flutter_template/widgets/keep_alive_wrapper.dart';
 import 'package:get/get.dart';
 
@@ -10,9 +13,9 @@ class HomeTabsState {
   final _currentTab = 0.obs;
 
   final List<Widget> pages = const [
-    KeepAliveWrapper(child: Text('data1')),
-    KeepAliveWrapper(keepAlive: true, child: Text('data2')),
-    KeepAliveWrapper(keepAlive: true, child: Text('data3')),
+    KeepAliveWrapper(child: HomeTabsHomePage()),
+    KeepAliveWrapper(child: HomeTabsMessagePage()),
+    KeepAliveWrapper(child: HomeTabsMinePage()),
   ];
 
   final List<BottomNavigationBarItem> bottomTabs = const [

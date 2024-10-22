@@ -25,7 +25,7 @@ class LoginController extends GetxController {
     }
     try {
       LoadingUtil.show('登录中...');
-      await Future.delayed(const Duration(milliseconds: 2));
+      await Future.delayed(const Duration(seconds: 2));
       await UserStore.to.handleLogin({
         "username": state.usernameController.text,
         "password": state.passwordController.text,
@@ -35,6 +35,8 @@ class LoginController extends GetxController {
       Get.offAndToNamed(AppRoutes.homeTabs);
     } catch (e) {
       print("login---$e");
+    } finally {
+      LoadingUtil.dismiss();
     }
   }
 
