@@ -3,5 +3,5 @@
 
 FLUTTER_TARGET=lib/main_env_test.dart
 ASSET_PREFIX=env_test
-BUNDLE_NAME=flutter_template（测试）
-BUNDLE_DISPLAY_NAME=flutter_template（测试）
+BUNDLE_NAME=flutterTemplate（测试）
+BUNDLE_DISPLAY_NAME=flutterTemplate（测试）

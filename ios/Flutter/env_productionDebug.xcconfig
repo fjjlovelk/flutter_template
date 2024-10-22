@@ -3,5 +3,5 @@
 
 FLUTTER_TARGET=lib/main_env_production.dart
 ASSET_PREFIX=env_production
-BUNDLE_NAME=flutter_template
-BUNDLE_DISPLAY_NAME=flutter_template
+BUNDLE_NAME=flutterTemplate
+BUNDLE_DISPLAY_NAME=flutterTemplate
