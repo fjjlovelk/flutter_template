@@ -1,9 +1,8 @@
 import 'package:dio/dio.dart';
+import 'package:flutter_template/config/http_config.dart';
+import 'package:flutter_template/store/user_store.dart';
+import 'package:flutter_template/utils/loading_util.dart';
 import 'package:get/get.dart' as getx;
-
-import '../config/http_config.dart';
-import '../store/user_store.dart';
-import '../utils/loading_util.dart';
 
 class HttpService {
   static final HttpService _instance = HttpService._internal();
