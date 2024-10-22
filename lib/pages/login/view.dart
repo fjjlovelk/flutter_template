@@ -28,7 +28,7 @@ class LoginPage extends GetView<LoginController> {
             TextField(
               controller: controller.state.usernameController,
               style: TextStyle(
-                color: Colors.white54,
+                color: Colors.white70,
                 fontSize: 14.sp,
               ),
               textAlignVertical: TextAlignVertical.center,
@@ -46,7 +46,7 @@ class LoginPage extends GetView<LoginController> {
               () => TextField(
                 controller: controller.state.passwordController,
                 style: TextStyle(
-                  color: Colors.white54,
+                  color: Colors.white70,
                   fontSize: 14.sp,
                 ),
                 obscureText: controller.state.isObscure.value,
@@ -77,7 +77,7 @@ class LoginPage extends GetView<LoginController> {
             TextField(
               controller: controller.state.captchaController,
               style: TextStyle(
-                color: Colors.white54,
+                color: Colors.white70,
                 fontSize: 14.sp,
               ),
               textAlignVertical: TextAlignVertical.center,
