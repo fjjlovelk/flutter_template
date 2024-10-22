@@ -1,7 +1,7 @@
 name: flutter_template
 description: "A new Flutter project."
 publish_to: 'none'
-version: 1.0.0+1
+version: 0.0.1+1
 
 environment:
   sdk: ^3.5.3
@@ -9,18 +9,27 @@ dependencies:
   flutter:
     sdk: flutter
   cupertino_icons: ^1.0.8
+  # 路由、状态管理
   get: ^4.6.6
+  # 网络请求
   dio: ^5.7.0
+  # 持久化存储
   shared_preferences: ^2.3.2
+  # 屏幕单位适配
   flutter_screenutil: ^5.9.3
+  # loading、toast
   flutter_easyloading: ^3.0.5
+  # 权限管理
   permission_handler: ^11.3.1
+  # 设备信息
   device_info_plus: ^11.1.0
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_lints: ^4.0.0
+  # 多环境配置
+  flutter_flavorizr: ^2.2.3
 
 flutter:
   uses-material-design: true
