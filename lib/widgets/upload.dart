@@ -57,16 +57,7 @@ class UploadComponentState extends State<UploadComponent> {
   void initState() {
     super.initState();
     if (widget.fileList.isNotEmpty) {
-      filesNotifier.value = widget.fileList
-          .map((file) => file.copyWith(
-                name: file.name,
-                url: file.url,
-                localPath: file.localPath,
-                percent: file.percent,
-                status: file.status,
-                uid: file.uid,
-              ))
-          .toList();
+      filesNotifier.value = widget.fileList;
     }
   }
 
@@ -96,7 +87,7 @@ class UploadComponentState extends State<UploadComponent> {
     }
 
     uploadFile.status = UploadStatusEnum.done;
-    uploadFile.url = 'http://example.com/${uploadFile.name}';
+    uploadFile.url = uploadFile.name;
     filesNotifier.value = List.from(filesNotifier.value);
     widget.onChange?.call(filesNotifier.value);
   }

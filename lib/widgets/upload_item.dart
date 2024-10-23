@@ -36,12 +36,30 @@ class UploadItem extends StatelessWidget {
   /// 上传进度条
   Widget _buildProgress() {
     switch (file.status) {
+      case UploadStatusEnum.ready:
       case UploadStatusEnum.uploading:
-        return CircularProgressIndicator(value: file.percent);
+        return SizedBox(
+          width: 20.r,
+          height: 20.r,
+          child: CircularProgressIndicator(
+            value: file.percent,
+            color: Colors.blue,
+            strokeWidth: 9.r,
+            strokeAlign: BorderSide.strokeAlignInside,
+          ),
+        );
       case UploadStatusEnum.error:
-        return Text(UploadStatusEnum.error.desc);
-      default:
-        return const SizedBox();
+        return Icon(
+          Icons.info_rounded,
+          color: Colors.red,
+          size: 20.r,
+        );
+      case UploadStatusEnum.done:
+        return Icon(
+          Icons.check_circle,
+          color: Colors.green,
+          size: 20.r,
+        );
     }
   }
 
@@ -61,7 +79,11 @@ class UploadItem extends StatelessWidget {
             fit: StackFit.expand,
             children: [
               _buildImage(),
-              _buildProgress(),
+              Positioned(
+                top: 0,
+                right: 0,
+                child: _buildProgress(),
+              ),
             ],
           ),
         ),

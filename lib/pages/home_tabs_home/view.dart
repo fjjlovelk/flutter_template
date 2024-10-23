@@ -57,10 +57,10 @@ class UploadDemoState extends State<UploadDemo> {
             itemBuilder: (context, index) {
               final file = uploadedFiles[index];
               return ListTile(
-                title: Text(file.name),
-                subtitle: Text('Status: ${file.status}'),
+                title: Text(index.toString()),
+                subtitle: Text('Status: ${file.status.desc}'),
                 trailing: file.status == UploadStatusEnum.done
-                    ? Text('URL: ${file.url}')
+                    ? Text('${file.url?.substring(0, 10)}')
                     : null,
               );
             },
