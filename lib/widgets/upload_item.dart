@@ -2,51 +2,70 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_template/widgets/upload.dart';
+import 'package:flutter_template/enums/upload_status_enum.dart';
+import 'package:flutter_template/models/upload_file_model.dart';
 
 class UploadItem extends StatelessWidget {
-  final UploadFile file;
+  /// 上传的文件
+  final UploadFileModel file;
 
   /// 盒子大小，默认80
   final double boxSize;
 
-  final Future<void> Function() onRemove;
+  /// 删除文件
+  final Future<void> Function(UploadFileModel) onLongPress;
 
   UploadItem({
     Key? key,
     required this.file,
-    required this.onRemove,
-    required this.boxSize,
+    required this.onLongPress,
+    this.boxSize = 80,
   }) : super(key: ValueKey(file.uid)); // 使用 ValueKey
+
+  /// 显示的图片
+  Widget _buildImage() {
+    if (file.localPath != null) {
+      return Image.file(File(file.localPath!), fit: BoxFit.cover);
+    }
+    if (file.url != null) {
+      Image.network(file.url!, fit: BoxFit.cover);
+    }
+    return Text(UploadStatusEnum.error.desc);
+  }
+
+  /// 上传进度条
+  Widget _buildProgress() {
+    switch (file.status) {
+      case UploadStatusEnum.uploading:
+        return CircularProgressIndicator(value: file.percent);
+      case UploadStatusEnum.error:
+        return Text(UploadStatusEnum.error.desc);
+      default:
+        return const SizedBox();
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
-    return Stack(
-      alignment: Alignment.topRight,
-      children: [
-        Container(
-          width: 100.r,
-          height: 100.r,
-          decoration: BoxDecoration(
-            border: Border.all(color: Colors.grey),
-            borderRadius: BorderRadius.circular(8),
-            image: file.localPath != null
-                ? DecorationImage(
-                    image: FileImage(File(file.localPath!)), fit: BoxFit.cover)
-                : (file.status == UploadStatus.done && file.url != null)
-                    ? DecorationImage(
-                        image: NetworkImage(file.url!), fit: BoxFit.cover)
-                    : null,
+    return InkWell(
+      onLongPress: () {
+        onLongPress(file);
+      },
+      borderRadius: BorderRadius.circular(8.r),
+      child: SizedBox(
+        width: boxSize.r,
+        height: boxSize.r,
+        child: ClipRRect(
+          borderRadius: BorderRadius.circular(8.r),
+          child: Stack(
+            fit: StackFit.expand,
+            children: [
+              _buildImage(),
+              _buildProgress(),
+            ],
           ),
-          child: file.status == UploadStatus.uploading
-              ? Center(child: CircularProgressIndicator(value: file.percent))
-              : null,
         ),
-        IconButton(
-          icon: const Icon(Icons.remove_circle, color: Colors.red),
-          onPressed: onRemove,
-        ),
-      ],
+      ),
     );
   }
 }

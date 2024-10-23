@@ -57,28 +57,19 @@ class PermissionUtil {
   }
 
   /// 相机 权限检查和请求
-  static Future<bool> camera({String message = '暂无相机权限，请前往设置开启权限'}) async {
-    bool isGranted = await _requestPermission(Permission.camera, message);
-    return isGranted;
-  }
+  static Future<bool> camera({String message = '暂无相机权限，请前往设置开启权限'}) =>
+      _requestPermission(Permission.camera, message);
 
   /// 麦克风 权限检查和请求
-  static Future<bool> microphone({String message = '暂无麦克风权限，请前往设置开启权限'}) async {
-    bool isGranted = await _requestPermission(Permission.microphone, message);
-    return isGranted;
-  }
+  static Future<bool> microphone({String message = '暂无麦克风权限，请前往设置开启权限'}) =>
+      _requestPermission(Permission.microphone, message);
 
   /// 手机存储 权限检查和请求
-  static Future<bool> storage({String message = '暂无手机存储权限，请前往设置开启权限'}) async {
-    bool isGranted = await _requestPermission(Permission.storage, message);
-    return isGranted;
-  }
+  static Future<bool> storage({String message = '暂无手机存储权限，请前往设置开启权限'}) =>
+      _requestPermission(Permission.storage, message);
 
   /// 媒体位置权限
   static Future<bool> accessMediaLocation(
-      {String message = '暂无媒体位置权限，请前往设置开启权限'}) async {
-    bool isGranted =
-        await _requestPermission(Permission.accessMediaLocation, message);
-    return isGranted;
-  }
+          {String message = '暂无媒体位置权限，请前往设置开启权限'}) =>
+      _requestPermission(Permission.accessMediaLocation, message);
 }

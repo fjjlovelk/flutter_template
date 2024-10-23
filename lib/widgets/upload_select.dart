@@ -1,8 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_template/utils/permission_util.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_template/models/upload_file_model.dart';
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:uuid/uuid.dart';
 
 /// Upload中的加号
 class UploadSelect extends StatelessWidget {
@@ -11,33 +13,33 @@ class UploadSelect extends StatelessWidget {
   /// 盒子大小，默认80
   final double boxSize;
 
-  /// 选择图片数量，-1为无限制，默认5张
-  final int countLimit;
+  /// 选择图片数量，-1为无限制，默认9张
+  final int maxCount;
 
-  /// 已选选择图片数量
+  /// 已选图片数量
   final int selectedCount;
 
-  final void Function(List<XFile>) onChange;
+  /// 选择图片后触发的回调
+  final void Function(List<UploadFileModel>) onSelect;
 
   UploadSelect({
     super.key,
     this.boxSize = 80,
-    this.countLimit = -1,
-    required this.onChange,
-    this.selectedCount = 0,
+    this.maxCount = 9,
+    required this.onSelect,
+    required this.selectedCount,
   });
 
   /// 点击事件
-  void onTab(BuildContext context) async {
+  void onTap(BuildContext context) async {
     showCupertinoModalPopup(
       context: context,
       builder: (_) => CupertinoActionSheet(
         actions: [
           CupertinoActionSheetAction(
             onPressed: () => onSelectPhoto(),
-            child: countLimit == -1
-                ? const Text('图片')
-                : Text('图片 (最多$countLimit张)'),
+            child:
+                maxCount == -1 ? const Text('图片') : Text('图片 (最多$maxCount张)'),
           ),
           CupertinoActionSheetAction(
             onPressed: () => onSelectCamera(),
@@ -55,48 +57,38 @@ class UploadSelect extends StatelessWidget {
   /// 选择图片
   void onSelectPhoto() async {
     Get.back();
-    // 请求相册权限
-    bool isPhotosGranted = await PermissionUtil.photos();
-    if (!isPhotosGranted) {
-      return;
-    }
-    // 请求相册位置权限
-    bool isAccessMediaLocationGranted =
-        await PermissionUtil.accessMediaLocation();
-    if (!isAccessMediaLocationGranted) {
-      return;
-    }
-    final List<XFile> result = await _picker.pickMultiImage(
-      limit: (countLimit == -1 ? 99 : countLimit) - selectedCount,
+    final List<XFile> pickedFiles = await _picker.pickMultiImage(
+      limit: maxCount == -1 ? 99 : (maxCount - selectedCount),
     );
-    if (result.isEmpty) {
+    if (pickedFiles.isEmpty) {
       return;
     }
-    onChange(result);
+    final List<UploadFileModel> result = [];
+    for (var pickedFile in pickedFiles) {
+      final uploadFile = UploadFileModel(
+        name: pickedFile.name,
+        localPath: pickedFile.path,
+        uid: const Uuid().v4(),
+      );
+      result.add(uploadFile);
+    }
+    onSelect(result);
   }
 
   /// 选择拍照
   void onSelectCamera() async {
     Get.back();
-    // 请求相册权限
-    bool isPhotosGranted = await PermissionUtil.photos();
-    if (!isPhotosGranted) {
-      return;
-    }
-    // 请求相册位置权限
-    bool isAccessMediaLocationGranted =
-        await PermissionUtil.accessMediaLocation();
-    if (!isAccessMediaLocationGranted) {
-      return;
-    }
     // 调用拍照
     final XFile? photo = await _picker.pickImage(source: ImageSource.camera);
     if (photo == null) {
       return;
     }
-    // 将拍照生成的图片路径保存
-    List<XFile> pickedFile = [photo];
-    onChange(pickedFile);
+    final uploadFile = UploadFileModel(
+      name: photo.name,
+      localPath: photo.path,
+      uid: const Uuid().v4(),
+    );
+    onSelect([uploadFile]);
   }
 
   /// 取消
@@ -107,20 +99,20 @@ class UploadSelect extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () => onTab(context),
+      onTap: () => onTap(context),
       splashColor: Colors.black.withOpacity(0.1),
-      borderRadius: BorderRadius.circular(8),
+      borderRadius: BorderRadius.circular(8.r),
       child: Container(
-        width: boxSize,
-        height: boxSize,
+        width: double.infinity,
+        height: double.infinity,
         alignment: Alignment.center,
         decoration: BoxDecoration(
           color: Colors.black.withOpacity(0.1),
-          borderRadius: BorderRadius.circular(8),
+          borderRadius: BorderRadius.circular(8.r),
         ),
         child: Icon(
           Icons.add,
-          size: (boxSize / 3).truncateToDouble(),
+          size: (boxSize / 3).truncateToDouble().r,
           color: Colors.black.withOpacity(0.3),
         ),
       ),

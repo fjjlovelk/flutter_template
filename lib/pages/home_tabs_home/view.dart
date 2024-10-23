@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_template/enums/upload_status_enum.dart';
+import 'package:flutter_template/models/upload_file_model.dart';
 import 'package:flutter_template/widgets/upload.dart';
 import 'package:get/get.dart';
 
@@ -26,7 +28,7 @@ class UploadDemo extends StatefulWidget {
 }
 
 class UploadDemoState extends State<UploadDemo> {
-  List<UploadFile> uploadedFiles = [];
+  List<UploadFileModel> uploadedFiles = [];
 
   @override
   Widget build(BuildContext context) {
@@ -34,8 +36,7 @@ class UploadDemoState extends State<UploadDemo> {
       children: [
         UploadComponent(
           fileList: uploadedFiles,
-          action: 'http://example.com/upload', // 示例上传地址
-          maxCount: 5,
+          action: 'http://example.com/upload',
           beforeUpload: (file) async {
             // 可以在这里进行文件类型检查等
             return true; // 返回 false 则停止上传
@@ -58,7 +59,7 @@ class UploadDemoState extends State<UploadDemo> {
               return ListTile(
                 title: Text(file.name),
                 subtitle: Text('Status: ${file.status}'),
-                trailing: file.status == UploadStatus.done
+                trailing: file.status == UploadStatusEnum.done
                     ? Text('URL: ${file.url}')
                     : null,
               );
