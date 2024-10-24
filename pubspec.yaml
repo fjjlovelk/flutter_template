@@ -25,6 +25,8 @@ dependencies:
   device_info_plus: ^11.1.0
   image_picker: ^1.1.2
   uuid: ^4.5.1
+  wechat_assets_picker: ^9.3.3
+  wechat_camera_picker: ^4.3.4
 
 dev_dependencies:
   flutter_test:

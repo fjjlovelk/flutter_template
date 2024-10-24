@@ -39,7 +39,7 @@ class UploadComponent extends StatefulWidget {
     this.action,
     this.disabled = false,
     this.maxCount = 9,
-    this.multiple = false,
+    this.multiple = true,
     this.beforeUpload,
     this.customRequest,
     this.onChange,
@@ -108,7 +108,14 @@ class UploadComponentState extends State<UploadComponent> {
   Widget build(BuildContext context) {
     return ValueListenableBuilder<List<UploadFileModel>>(
       valueListenable: filesNotifier,
+      child: UploadSelect(
+        maxCount: widget.maxCount,
+        onSelect: _onSelect,
+        selectedCount: filesNotifier.value.length,
+        multiple: widget.multiple,
+      ),
       builder: (context, files, child) {
+        bool notShowSelect = files.length >= widget.maxCount || widget.disabled;
         return GridView.builder(
           padding: EdgeInsets.symmetric(
             horizontal: 8.r,
@@ -126,16 +133,12 @@ class UploadComponentState extends State<UploadComponent> {
             if (index < files.length) {
               final file = files[index];
               return UploadItem(
-                key: ValueKey(file.uid),
+                key: ObjectKey(file.uid),
                 file: file,
-                onLongPress: _removeFile,
+                onLongPress: widget.disabled ? null : _removeFile,
               );
             }
-            return UploadSelect(
-              maxCount: widget.maxCount,
-              onSelect: _onSelect,
-              selectedCount: files.length,
-            );
+            return notShowSelect ? null : child;
           },
         );
       },

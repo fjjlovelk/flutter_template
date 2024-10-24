@@ -29,21 +29,4 @@ class UploadFileModel {
     this.status = UploadStatusEnum.ready,
     String? uid,
   }) : uid = uid ?? const Uuid().v4();
-
-  UploadFileModel copyWith({
-    required String name,
-    String? url,
-    String? localPath,
-    double? percent,
-    UploadStatusEnum? status,
-    String? uid,
-  }) =>
-      UploadFileModel(
-        name: name,
-        url: url,
-        localPath: localPath,
-        percent: percent ?? 0,
-        status: status ?? UploadStatusEnum.ready,
-        uid: uid ?? const Uuid().v4(),
-      );
 }

@@ -12,15 +12,15 @@ class UploadItem extends StatelessWidget {
   /// 盒子大小，默认80
   final double boxSize;
 
-  /// 删除文件
-  final Future<void> Function(UploadFileModel) onLongPress;
+  /// 长按文件
+  final Future<void> Function(UploadFileModel)? onLongPress;
 
-  UploadItem({
-    Key? key,
+  const UploadItem({
+    super.key,
     required this.file,
-    required this.onLongPress,
+    this.onLongPress,
     this.boxSize = 80,
-  }) : super(key: ValueKey(file.uid)); // 使用 ValueKey
+  });
 
   /// 显示的图片
   Widget _buildImage() {
@@ -44,7 +44,7 @@ class UploadItem extends StatelessWidget {
           child: CircularProgressIndicator(
             value: file.percent,
             color: Colors.blue,
-            strokeWidth: 9.r,
+            strokeWidth: 10.r,
             strokeAlign: BorderSide.strokeAlignInside,
           ),
         );
@@ -65,9 +65,10 @@ class UploadItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    print('UploadItem--build---${file.uid}');
     return InkWell(
       onLongPress: () {
-        onLongPress(file);
+        onLongPress?.call(file);
       },
       borderRadius: BorderRadius.circular(8.r),
       child: SizedBox(
