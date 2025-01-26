@@ -3,10 +3,10 @@ import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:oktoast/oktoast.dart';
+
 import '../config/theme_config.dart';
 import '../router/app_pages.dart';
 import '../utils/init_app_util.dart';
-
 import 'flavors.dart';
 
 class App extends StatelessWidget {
