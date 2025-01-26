@@ -1,5 +1,6 @@
-import 'package:flutter_template/pages/home_tabs_mine/controller.dart';
 import 'package:get/get.dart';
+
+import 'controller.dart';
 
 class HomeTabsMineBinding extends Bindings {
   @override

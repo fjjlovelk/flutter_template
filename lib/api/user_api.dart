@@ -1,9 +1,10 @@
 import 'dart:convert';
 
 import 'package:dio/dio.dart';
-import 'package:flutter_template/http/http_service.dart';
-import 'package:flutter_template/models/file_model.dart';
-import 'package:flutter_template/models/user_model.dart';
+
+import '../http/http_service.dart';
+import '../models/file_model.dart';
+import '../models/user_model.dart';
 
 class UserApi {
   /// 获取验证码

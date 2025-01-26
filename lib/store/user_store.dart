@@ -1,10 +1,11 @@
 import 'dart:convert';
 
-import 'package:flutter_template/api/user_api.dart';
-import 'package:flutter_template/enums/storage_enum.dart';
-import 'package:flutter_template/models/user_model.dart';
-import 'package:flutter_template/services/storage_service.dart';
 import 'package:get/get.dart';
+
+import '../api/user_api.dart';
+import '../enums/storage_enum.dart';
+import '../models/user_model.dart';
+import '../services/storage_service.dart';
 
 class UserStore extends GetxController {
   static UserStore get to => Get.find();

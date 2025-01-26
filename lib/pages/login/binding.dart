@@ -1,5 +1,6 @@
-import 'package:flutter_template/pages/login/controller.dart';
 import 'package:get/get.dart';
+
+import 'controller.dart';
 
 class LoginBinding extends Bindings {
   @override

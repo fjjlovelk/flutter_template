@@ -1,9 +1,10 @@
-import 'package:flutter_template/api/user_api.dart';
-import 'package:flutter_template/router/app_routes.dart';
-import 'package:flutter_template/store/user_store.dart';
-import 'package:flutter_template/utils/loading_util.dart';
 import 'package:get/get.dart';
 
+import '../../api/user_api.dart';
+import '../../router/app_routes.dart';
+import '../../store/user_store.dart';
+import '../../utils/loading_util.dart';
+import '../../utils/toast_util.dart';
 import 'state.dart';
 
 class LoginController extends GetxController {
@@ -12,15 +13,15 @@ class LoginController extends GetxController {
   /// 登录
   void login() async {
     if (state.usernameController.text.trim().isEmpty) {
-      LoadingUtil.showInfo("请输入账号");
+      ToastUtil.info("请输入账号");
       return;
     }
     if (state.passwordController.text.trim().isEmpty) {
-      LoadingUtil.showInfo("请输入密码");
+      ToastUtil.info("请输入密码");
       return;
     }
     if (state.captchaController.text.trim().isEmpty) {
-      LoadingUtil.showInfo("请输入验证码");
+      ToastUtil.info("请输入验证码");
       return;
     }
     try {
@@ -31,7 +32,7 @@ class LoginController extends GetxController {
         "password": state.passwordController.text,
         "captcha": state.captchaController.text,
       });
-      LoadingUtil.showSuccess('登录成功');
+      ToastUtil.success('登录成功');
       Get.offAndToNamed(AppRoutes.homeTabs);
     } catch (e) {
       print("login---$e");

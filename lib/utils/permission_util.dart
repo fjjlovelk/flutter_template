@@ -42,7 +42,6 @@ class PermissionUtil {
     //   await AssetPicker.permissionCheck();
     //   return true;
     // } catch (e) {
-    //   LoadingUtil.showInfo(message);
     //   return false;
     // }
     Permission permission = Permission.photos;

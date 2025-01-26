@@ -1,5 +1,6 @@
-import 'package:flutter_template/pages/home_tabs/controller.dart';
 import 'package:get/get.dart';
+
+import '../home_tabs/controller.dart';
 
 class HomeTabsHomeBinding extends Bindings {
   @override
