@@ -1,4 +1,4 @@
-package com.stxx.sgpt
+package com.flutter.template
 
 import io.flutter.embedding.android.FlutterActivity
 

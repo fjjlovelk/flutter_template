@@ -10,24 +10,24 @@ flavors:
     app:
       name: "铁路施工平台（开发）"
     android:
-      applicationId: "com.stxx.sgpt.sh.development"
+      applicationId: "com.flutter.template.sh.development"
     ios:
-      bundleId: "com.stxx.sgpt.sh.development"
+      bundleId: "com.flutter.template.sh.development"
 
   # 测试环境
   env_test:
     app:
       name: "铁路施工平台（测试）"
     android:
-      applicationId: "com.stxx.sgpt.sh.test"
+      applicationId: "com.flutter.template.sh.test"
     ios:
-      bundleId: "com.stxx.sgpt.sh.test"
+      bundleId: "com.flutter.template.sh.test"
 
   # 生产环境
   env_production:
     app:
       name: "铁路施工平台"
     android:
-      applicationId: "com.stxx.sgpt.sh"
+      applicationId: "com.flutter.template.sh"
     ios:
-      bundleId: "com.stxx.sgpt.sh"
+      bundleId: "com.flutter.template.sh"

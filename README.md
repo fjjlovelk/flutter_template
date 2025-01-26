@@ -1,4 +1,4 @@
-# com.stxx.sgpt.sh
+# com.flutter.template.sh
 
 上海铁路施工综合平台app，本项目使用`flutter`开发
 
