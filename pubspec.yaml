@@ -1,5 +1,5 @@
-name: sgpt_app
-description: "铁路施工平台"
+name: flutter_template
+description: "flutter_template"
 publish_to: 'none'
 version: 0.0.1+1
 
@@ -62,7 +62,6 @@ flutter:
   assets:
     - assets/images/
     - assets/icons/
-    - assets/tab_icons/
     - assets/
   # fonts:
   #   - family: Schyler
