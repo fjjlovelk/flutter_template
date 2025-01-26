@@ -2,14 +2,14 @@ import 'dart:io';
 
 import 'package:device_info_plus/device_info_plus.dart';
 import 'package:permission_handler/permission_handler.dart';
-
-import 'loading_util.dart';
+import '../utils/logger_util.dart';
+import '../utils/toast_util.dart';
 
 class PermissionUtil {
   static Future<bool> _requestPermission(
       Permission permission, String message) async {
     PermissionStatus status = await permission.status;
-    print('PermissionStatus---->$status}');
+    LoggerUtil.info('PermissionStatus---->$status}');
     // 允许/限制性允许
     if (status.isGranted || status.isLimited) {
       return true;
@@ -23,14 +23,14 @@ class PermissionUtil {
       }
       // 永久拒绝或拒绝弹框提示
       if (permissionStatus.isPermanentlyDenied || permissionStatus.isDenied) {
-        LoadingUtil.showInfo(message);
+        ToastUtil.info(message);
         return false;
       }
       return false;
     }
     // 永久拒绝
     if (status.isPermanentlyDenied) {
-      LoadingUtil.showInfo(message);
+      ToastUtil.info(message);
       return false;
     }
     return false;

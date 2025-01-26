@@ -1,4 +1,4 @@
-package com.fjj.flutter_template
+package com.stxx.sgpt
 
 import io.flutter.embedding.android.FlutterActivity
 

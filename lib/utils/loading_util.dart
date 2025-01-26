@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 
+import '../config/theme_config.dart';
+
 class LoadingUtil {
   LoadingUtil() {
     EasyLoading.instance
@@ -10,10 +12,10 @@ class LoadingUtil {
       ..indicatorSize = 35.0
       ..lineWidth = 2
       ..radius = 10.0
-      ..progressColor = Colors.white
-      ..backgroundColor = Colors.black.withOpacity(0.7)
-      ..indicatorColor = Colors.white
-      ..textColor = Colors.white
+      ..progressColor = ThemeConfig.white
+      ..backgroundColor = Colors.black.withValues(alpha: 0.7)
+      ..indicatorColor = ThemeConfig.white
+      ..textColor = ThemeConfig.white
       ..userInteractions = true
       ..dismissOnTap = false;
   }
@@ -28,29 +30,5 @@ class LoadingUtil {
   static void dismiss() {
     EasyLoading.instance.userInteractions = true;
     EasyLoading.dismiss();
-  }
-
-  /// toast
-  static void showToast(String text) {
-    EasyLoading.instance.userInteractions = true;
-    EasyLoading.showToast(text, maskType: EasyLoadingMaskType.none);
-  }
-
-  /// 成功
-  static void showSuccess(String text) {
-    EasyLoading.instance.userInteractions = true;
-    EasyLoading.showSuccess(text, maskType: EasyLoadingMaskType.none);
-  }
-
-  /// 失败
-  static void showError(String text) {
-    EasyLoading.instance.userInteractions = true;
-    EasyLoading.showError(text, maskType: EasyLoadingMaskType.none);
-  }
-
-  /// 信息
-  static void showInfo(String text) {
-    EasyLoading.instance.userInteractions = true;
-    EasyLoading.showInfo(text, maskType: EasyLoadingMaskType.none);
   }
 }

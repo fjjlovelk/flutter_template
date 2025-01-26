@@ -2,11 +2,11 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_template/http/http_custom_overrides.dart';
-import 'package:flutter_template/services/storage_service.dart';
-import 'package:flutter_template/store/user_store.dart';
 import 'package:get/get.dart';
 
+import '../http/http_custom_overrides.dart';
+import '../services/storage_service.dart';
+import '../store/user_store.dart';
 import 'loading_util.dart';
 
 class InitAppUtil {
@@ -16,8 +16,6 @@ class InitAppUtil {
     WidgetsFlutterBinding.ensureInitialized();
     // 固定App方向为上，即不受横屏影响
     await SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
-    // 设置系统UI
-    setSystemUi();
     // 加载loading实例
     LoadingUtil();
     // 全局忽略https证书
@@ -28,18 +26,11 @@ class InitAppUtil {
     Get.put<UserStore>(UserStore());
   }
 
-  /// 设置系统UI
-  static void setSystemUi() {
-    if (GetPlatform.isAndroid) {
-      SystemUiOverlayStyle systemUiOverlayStyle = const SystemUiOverlayStyle(
-        statusBarColor: Colors.transparent,
-        statusBarBrightness: Brightness.light,
-        statusBarIconBrightness: Brightness.dark,
-        systemNavigationBarDividerColor: Colors.transparent,
-        systemNavigationBarColor: Colors.transparent,
-        systemNavigationBarIconBrightness: Brightness.dark,
-      );
-      SystemChrome.setSystemUIOverlayStyle(systemUiOverlayStyle);
+  /// 取消焦点
+  static void unFocus(BuildContext context) {
+    FocusScopeNode currentFocus = FocusScope.of(context);
+    if (!currentFocus.hasPrimaryFocus && currentFocus.focusedChild != null) {
+      FocusManager.instance.primaryFocus?.unfocus();
     }
   }
 }

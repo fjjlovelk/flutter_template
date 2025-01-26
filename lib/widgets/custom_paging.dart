@@ -1,6 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:easy_refresh/easy_refresh.dart';
 import 'package:flutter/material.dart';
+import '../utils/logger_util.dart';
 
 enum CustomPagingStatus { reload, loading, refresh }
 
@@ -141,7 +142,7 @@ class CustomPagingState<DataType, ItemType>
         // 加载失败
         _controller.finishLoad(IndicatorResult.fail);
       }
-      print('error-------${error.toString()}');
+      LoggerUtil.error('error-------${error.toString()}');
       rethrow;
     }
   }
@@ -149,28 +150,28 @@ class CustomPagingState<DataType, ItemType>
   /// 刷新
   void _onRefresh() async {
     try {
-      print("_onRefresh");
+      LoggerUtil.info("_onRefresh");
       if (!mounted) {
         return;
       }
       _page = widget.initialPage;
       await _fetchData(CustomPagingStatus.refresh);
     } catch (error) {
-      print('error-------${error.toString()}');
+      LoggerUtil.error('error-------${error.toString()}');
     }
   }
 
   /// 加载下一页
   Future<void> _onLoad() async {
     try {
-      print("_onLoad");
+      LoggerUtil.info("_onLoad");
       if (!mounted || !widget.isPaging) {
         return;
       }
       _page += 1;
       await _fetchData(CustomPagingStatus.loading);
     } catch (error) {
-      print('error-------${error.toString()}');
+      LoggerUtil.error('error-------${error.toString()}');
     }
   }
 
@@ -180,13 +181,13 @@ class CustomPagingState<DataType, ItemType>
         _controller.footerState?.mode != IndicatorMode.inactive) {
       return;
     }
-    print("callRefresh");
+    LoggerUtil.info("callRefresh");
     _controller.callRefresh();
   }
 
   /// 外部调用 加载
   void callLoad() {
-    print("callLoad");
+    LoggerUtil.info("callLoad");
     if (!widget.isPaging) {
       return;
     }
@@ -196,13 +197,13 @@ class CustomPagingState<DataType, ItemType>
   /// 外部调用 重新加载当前页
   void callReload() async {
     try {
-      print("callReload");
+      LoggerUtil.info("callReload");
       if (!mounted || !widget.isPaging) {
         return;
       }
       await _fetchData(CustomPagingStatus.reload);
     } catch (error) {
-      print('error-------${error.toString()}');
+      LoggerUtil.error('error-------${error.toString()}');
     }
   }
 

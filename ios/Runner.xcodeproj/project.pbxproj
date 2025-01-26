@@ -54,8 +54,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		0021D6152CC9E3E800A7742A /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
-		0021D6162CC9E3E900A7742A /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		0240922E7B4E1E3BECF67E4F /* env_productionLaunchScreen.storyboard */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.storyboard; name = env_productionLaunchScreen.storyboard; path = Runner/env_productionLaunchScreen.storyboard; sourceTree = "<group>"; };
 		037DA63508954C6F01A6D45D /* Pods-RunnerTests.debug-env_test.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RunnerTests.debug-env_test.xcconfig"; path = "Target Support Files/Pods-RunnerTests/Pods-RunnerTests.debug-env_test.xcconfig"; sourceTree = "<group>"; };
 		0759D6FB188E1A50292A8CF2 /* Pods-RunnerTests.profile-env_development.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RunnerTests.profile-env_development.xcconfig"; path = "Target Support Files/Pods-RunnerTests/Pods-RunnerTests.profile-env_development.xcconfig"; sourceTree = "<group>"; };
@@ -305,12 +303,11 @@
 			};
 			buildConfigurationList = 97C146E91CF9000F007C117D /* Build configuration list for PBXProject "Runner" */;
 			compatibilityVersion = "Xcode 9.3";
-			developmentRegion = "zh-Hans";
+			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 				Base,
-				"zh-Hans",
 			);
 			mainGroup = 97C146E51CF9000F007C117D;
 			productRefGroup = 97C146EF1CF9000F007C117D /* Products */;
@@ -501,7 +498,6 @@
 			isa = PBXVariantGroup;
 			children = (
 				97C146FB1CF9000F007C117D /* Base */,
-				0021D6152CC9E3E800A7742A /* zh-Hans */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -510,7 +506,6 @@
 			isa = PBXVariantGroup;
 			children = (
 				97C147001CF9000F007C117D /* Base */,
-				0021D6162CC9E3E900A7742A /* zh-Hans */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -576,8 +571,11 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 98224FE7CB990260AE60FF77 /* Pods-Runner.debug-env_production.xcconfig */;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 337F26A6T6;
 				PRODUCT_NAME = Runner;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 			};
 			name = "Debug-env_production";
 		};
@@ -585,8 +583,11 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 545A72F7252D4333C38E5005 /* Pods-Runner.profile-env_production.xcconfig */;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 337F26A6T6;
 				PRODUCT_NAME = Runner;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 			};
 			name = "Profile-env_production";
 		};
@@ -594,8 +595,11 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 8108FCF377BE55504A845D64 /* Pods-Runner.release-env_production.xcconfig */;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 337F26A6T6;
 				PRODUCT_NAME = Runner;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 			};
 			name = "Release-env_production";
 		};
@@ -739,7 +743,7 @@
 				);
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = com.fjj.flutterTemplate;
+				PRODUCT_BUNDLE_IDENTIFIER = com.stxx.sgpt.sh;
 				SDKROOT = iphoneos;
 				SWIFT_OBJC_BRIDGING_HEADER = "Runner/Runner-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
@@ -806,16 +810,19 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = "$(FLUTTER_BUILD_NUMBER)";
-				DEVELOPMENT_TEAM = 337F26A6T6;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = Runner/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.fjj.fluttertemplate.flutterTemplate;
+				PRODUCT_BUNDLE_IDENTIFIER = com.stxx.sgpt;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Runner/Runner-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -883,7 +890,7 @@
 					"$(PROJECT_DIR)/Flutter",
 				);
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_BUNDLE_IDENTIFIER = com.fjj.flutterTemplate.development;
+				PRODUCT_BUNDLE_IDENTIFIER = com.stxx.sgpt.sh.development;
 				SDKROOT = iphoneos;
 				SUPPORTED_PLATFORMS = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
@@ -904,7 +911,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.fjj.fluttertemplate.flutterTemplate.RunnerTests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.stxx.sgpt.RunnerTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -922,7 +929,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.fjj.fluttertemplate.flutterTemplate.RunnerTests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.stxx.sgpt.RunnerTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Runner.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Runner";
@@ -938,7 +945,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.fjj.fluttertemplate.flutterTemplate.RunnerTests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.stxx.sgpt.RunnerTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Runner.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Runner";
@@ -1006,7 +1013,7 @@
 					"$(PROJECT_DIR)/Flutter",
 				);
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_BUNDLE_IDENTIFIER = com.fjj.flutterTemplate.test;
+				PRODUCT_BUNDLE_IDENTIFIER = com.stxx.sgpt.sh.test;
 				SDKROOT = iphoneos;
 				SUPPORTED_PLATFORMS = iphoneos;
 				SWIFT_OBJC_BRIDGING_HEADER = "Runner/Runner-Bridging-Header.h";
@@ -1077,7 +1084,7 @@
 					"$(PROJECT_DIR)/Flutter",
 				);
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_BUNDLE_IDENTIFIER = com.fjj.flutterTemplate;
+				PRODUCT_BUNDLE_IDENTIFIER = com.stxx.sgpt.sh;
 				SDKROOT = iphoneos;
 				SUPPORTED_PLATFORMS = iphoneos;
 				SWIFT_OBJC_BRIDGING_HEADER = "Runner/Runner-Bridging-Header.h";
@@ -1148,7 +1155,7 @@
 					"$(PROJECT_DIR)/Flutter",
 				);
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_BUNDLE_IDENTIFIER = com.fjj.flutterTemplate.test;
+				PRODUCT_BUNDLE_IDENTIFIER = com.stxx.sgpt.sh.test;
 				SDKROOT = iphoneos;
 				SUPPORTED_PLATFORMS = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
@@ -1221,7 +1228,7 @@
 					"$(PROJECT_DIR)/Flutter",
 				);
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_BUNDLE_IDENTIFIER = com.fjj.flutterTemplate.development;
+				PRODUCT_BUNDLE_IDENTIFIER = com.stxx.sgpt.sh.development;
 				SDKROOT = iphoneos;
 				SUPPORTED_PLATFORMS = iphoneos;
 				SWIFT_OBJC_BRIDGING_HEADER = "Runner/Runner-Bridging-Header.h";
@@ -1292,7 +1299,7 @@
 					"$(PROJECT_DIR)/Flutter",
 				);
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_BUNDLE_IDENTIFIER = com.fjj.flutterTemplate;
+				PRODUCT_BUNDLE_IDENTIFIER = com.stxx.sgpt.sh;
 				SDKROOT = iphoneos;
 				SUPPORTED_PLATFORMS = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
@@ -1423,16 +1430,19 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = "$(FLUTTER_BUILD_NUMBER)";
-				DEVELOPMENT_TEAM = 337F26A6T6;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = Runner/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.fjj.fluttertemplate.flutterTemplate;
+				PRODUCT_BUNDLE_IDENTIFIER = com.stxx.sgpt;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Runner/Runner-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -1446,16 +1456,19 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = "$(FLUTTER_BUILD_NUMBER)";
-				DEVELOPMENT_TEAM = 337F26A6T6;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = Runner/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.fjj.fluttertemplate.flutterTemplate;
+				PRODUCT_BUNDLE_IDENTIFIER = com.stxx.sgpt;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Runner/Runner-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -1530,7 +1543,7 @@
 				);
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = com.fjj.flutterTemplate.test;
+				PRODUCT_BUNDLE_IDENTIFIER = com.stxx.sgpt.sh.test;
 				SDKROOT = iphoneos;
 				SWIFT_OBJC_BRIDGING_HEADER = "Runner/Runner-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
@@ -1606,7 +1619,7 @@
 				);
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = com.fjj.flutterTemplate.development;
+				PRODUCT_BUNDLE_IDENTIFIER = com.stxx.sgpt.sh.development;
 				SDKROOT = iphoneos;
 				SWIFT_OBJC_BRIDGING_HEADER = "Runner/Runner-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;

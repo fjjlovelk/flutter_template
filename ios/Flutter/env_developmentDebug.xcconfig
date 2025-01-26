@@ -3,5 +3,5 @@
 
 FLUTTER_TARGET=lib/main_env_development.dart
 ASSET_PREFIX=env_development
-BUNDLE_NAME=flutterTemplate（开发）
-BUNDLE_DISPLAY_NAME=flutterTemplate（开发）
+BUNDLE_NAME=铁路施工平台（开发）
+BUNDLE_DISPLAY_NAME=铁路施工平台（开发）

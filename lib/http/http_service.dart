@@ -1,8 +1,11 @@
 import 'package:dio/dio.dart';
-import 'package:flutter_template/config/http_config.dart';
-import 'package:flutter_template/store/user_store.dart';
-import 'package:flutter_template/utils/loading_util.dart';
 import 'package:get/get.dart' as getx;
+import 'package:talker_dio_logger/talker_dio_logger_interceptor.dart';
+import 'package:talker_dio_logger/talker_dio_logger_settings.dart';
+
+import '../config/http_config.dart';
+import '../store/user_store.dart';
+import '../utils/toast_util.dart';
 
 class HttpService {
   static final HttpService _instance = HttpService._internal();
@@ -28,24 +31,45 @@ class HttpService {
     //   };
     //   return client;
     // });
+
+    // 日志拦截器
+    dio.interceptors.add(
+      TalkerDioLogger(
+        settings: const TalkerDioLoggerSettings(
+          printRequestHeaders: false,
+          printResponseHeaders: false,
+          printRequestData: false,
+          printResponseData: false,
+          printErrorData: true,
+        ),
+      ),
+    );
+
     // 自定义拦截器
     dio.interceptors.add(InterceptorsWrapper(
       // 请求拦截
       onRequest: (RequestOptions options, RequestInterceptorHandler handler) {
+        options.headers['AppTag'] = 'mobile';
         if (getx.Get.isRegistered<UserStore>() && UserStore.to.hasToken) {
-          options.headers['X-Access-Token'] = UserStore.to.token;
+          options.headers['Authorization'] = UserStore.to.token;
         }
         return handler.next(options);
       },
       // 响应拦截
       onResponse: (Response response, ResponseInterceptorHandler handler) {
-        print("onResponse---, ${response.data}");
         if (response.data['success'] == true) {
-          return handler.next(response);
+          final newResponse = Response(
+            data: response.data,
+            statusCode: response.statusCode,
+            requestOptions: response.requestOptions,
+            headers: response.headers,
+          );
+          handler.resolve(newResponse);
+          return;
         }
         throw DioException(
           type: DioExceptionType.badResponse,
-          message: response.data?['message'] ?? '服务器错误',
+          message: response.data?['msg'] ?? '服务器错误',
           requestOptions: response.requestOptions,
           response: null,
           error: null,
@@ -61,27 +85,26 @@ class HttpService {
 
   /// 错误处理
   void onError(DioException err) {
-    print('onError---${err.toString()}');
     switch (err.type) {
       case DioExceptionType.connectionTimeout:
         break;
       case DioExceptionType.sendTimeout:
         break;
       case DioExceptionType.receiveTimeout:
-        LoadingUtil.showError('响应超时');
+        ToastUtil.error("响应超时");
         break;
       case DioExceptionType.badCertificate:
-        LoadingUtil.showError('证书错误');
+        ToastUtil.error("证书错误");
         break;
       case DioExceptionType.connectionError:
-        LoadingUtil.showError('连接错误');
+        ToastUtil.error("连接错误");
         break;
       case DioExceptionType.unknown:
         // 当err.type为unknown时err.error通常不为null
-        LoadingUtil.showError(err.error?.toString() ?? '未知错误');
+        ToastUtil.error(err.error?.toString() ?? '未知错误');
         break;
       case DioExceptionType.badResponse:
-        LoadingUtil.showError(err.message ?? '服务器错误');
+        ToastUtil.error(err.message ?? '服务器错误');
         break;
       default:
         break;

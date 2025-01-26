@@ -8,26 +8,26 @@ flavors:
   # 开发环境
   env_development:
     app:
-      name: "flutterTemplate（开发）"
+      name: "铁路施工平台（开发）"
     android:
-      applicationId: "com.fjj.flutterTemplate.development"
+      applicationId: "com.stxx.sgpt.sh.development"
     ios:
-      bundleId: "com.fjj.flutterTemplate.development"
+      bundleId: "com.stxx.sgpt.sh.development"
 
   # 测试环境
   env_test:
     app:
-      name: "flutterTemplate（测试）"
+      name: "铁路施工平台（测试）"
     android:
-      applicationId: "com.fjj.flutterTemplate.test"
+      applicationId: "com.stxx.sgpt.sh.test"
     ios:
-      bundleId: "com.fjj.flutterTemplate.test"
+      bundleId: "com.stxx.sgpt.sh.test"
 
   # 生产环境
   env_production:
     app:
-      name: "flutterTemplate"
+      name: "铁路施工平台"
     android:
-      applicationId: "com.fjj.flutterTemplate"
+      applicationId: "com.stxx.sgpt.sh"
     ios:
-      bundleId: "com.fjj.flutterTemplate"
+      bundleId: "com.stxx.sgpt.sh"

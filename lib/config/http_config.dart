@@ -1,4 +1,4 @@
-import 'package:flutter_template/flavors.dart';
+import '../flavors.dart';
 
 class HttpConfig {
   static String baseUrl = F.apiBaseUrl;
