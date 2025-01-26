@@ -1,6 +1,6 @@
-# com.flutter.template.sh
+# com.flutter.template
 
-上海铁路施工综合平台app，本项目使用`flutter`开发
+flutter项目模板
 
 ### 1.使用前请先按照 [官网-安装和配置环境](https://docs.flutter.cn/get-started/install)
 
