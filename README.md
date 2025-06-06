@@ -10,7 +10,7 @@ flutter项目模板
 
 ### 2.命令
 
-- 本项目使用[fvm](https://fvm.app/)管理 `flutter` 版本，安装依赖前请先安装 `fvm`，所有 `flutter` 相关命令都被 `fvm flutter` 替代
+- 本项目使用 [fvm](https://fvm.app/) 管理 `flutter` 版本，安装依赖前请先安装 `fvm`，所有 `flutter` 相关命令都被 `fvm flutter` 替代
 ```shell
 dart pub global activate fvm
 ```
