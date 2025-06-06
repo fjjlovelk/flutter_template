@@ -24,7 +24,7 @@ dependencies:
   # 设备信息
   device_info_plus: ^11.1.0
   # 拍照
-  image_picker: ^1.1.2
+  image_picker: ^1.0.8
   # 生成唯一标识
   uuid: ^4.5.1
   # 相册选择
@@ -49,6 +49,7 @@ dependencies:
   intl: ^0.19.0
   # 汉字转拼音
   pinyin: ^3.3.0
+  tdesign_flutter: ^0.2.0
 
 dev_dependencies:
   flutter_test:
