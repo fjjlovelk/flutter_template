@@ -10,56 +10,59 @@ flutter项目模板
 
 ### 2.命令
 
-- 拉取依赖，其他 flutter
-  命令请看 [官网-Flutter 命令行文档](https://docs.flutter.cn/reference/flutter-cli)
-
+- 本项目使用[fvm](https://fvm.app/)管理 `flutter` 版本，安装依赖前请先安装 `fvm`，所有 `flutter` 相关命令都被 `fvm flutter` 替代
 ```shell
-flutter pub get
+dart pub global activate fvm
+```
+
+- 安装 `flutter` 对应版本
+```shell
+fvm install
+```
+
+- 安装依赖，其他 `flutter` 命令请看 [官网-Flutter 命令行文档](https://docs.flutter.cn/reference/flutter-cli)
+```shell
+fvm flutter pub get
 ```
 
 - debug 模式
-
 ```shell
 # 替换 env_development 为你想要运行的环境，支持的环境请见 flavorizr.yaml
-flutter run --flavor env_development -t lib/main_env_development.dart
+fvm flutter run --flavor env_development -t lib/main_env_development.dart
 ```
 
 - release 模式
-
 ```shell
 # 替换 env_development 为你想要运行的环境，支持的环境请见 flavorizr.yaml
-flutter run --release --flavor env_development -t lib/main_env_development.dart
+fvm flutter run --release --flavor env_development -t lib/main_env_development.dart
 ```
 
-- android
-  打包，打包配置（图标、签名等）请看 [官网-构建和发布为 Android 应用](https://docs.flutter.cn/deployment/android)
-
+- android 打包，打包配置（图标、签名等）请看 [官网-构建和发布为 Android 应用](https://docs.flutter.cn/deployment/android)
 ```shell
 # 替换 env_test 为你想要运行的环境，支持的环境请见 flavorizr.yaml
-flutter build apk --flavor env_test -t lib/main_env_test.dart
+fvm flutter build apk --flavor env_test -t lib/main_env_test.dart
 ```
 
-- ios
-  打包，打包配置（图标、签名等）请看 [官网-构建和发布为 iOS 应用](https://docs.flutter.cn/deployment/ios)
-
+- ios 打包，打包配置（图标、签名等）请看 [官网-构建和发布为 iOS 应用](https://docs.flutter.cn/deployment/ios)
 ```shell
 # 替换 env_test 为你想要运行的环境，支持的环境请见 flavorizr.yaml
-flutter build ipa --flavor env_test -t lib/main_env_test.dart
+fvm flutter build ipa --flavor env_test -t lib/main_env_test.dart
 ```
 
 ### 3.依赖
 
 - 多环境配置 [flutter_flavorizr](https://pub-web.flutter-io.cn/packages/flutter_flavorizr)
+- 组件库 [tdesign_flutter](https://tdesign.tencent.com/flutter/)
 - 路由、状态管理 [getx](https://github.com/jonataslaw/getx/blob/master/README.zh-cn.md)
 - 网络请求 [dio](https://github.com/cfug/dio/blob/main/dio/README-ZH.md)
-- 其他依赖详见 pubspec.yaml
+- 其他依赖详见 [pubspec.yaml](pubspec.yaml)
 
 ### 4.注意点
 
 - 修改 flavorizr.yaml 文件后，请重新运行以下命令，否则修改不生效，同时请备份 main.dart、app.dart 以防被覆盖
 
 ```shell
-flutter pub run flutter_flavorizr
+fvm flutter pub run flutter_flavorizr
 ```
 
 - 推荐使用 AndroidStudio 插件 [FlutterAssetsGenerator](https://juejin.cn/post/6898542896274735117)
