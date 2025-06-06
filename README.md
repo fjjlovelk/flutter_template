@@ -4,14 +4,16 @@ flutter项目模板
 
 ### 1.使用前请先按照 [官网-安装和配置环境](https://docs.flutter.cn/get-started/install)
 
-    推荐使用 AndroidStudio 作为开发工具
-    同时安装 flutter、getx 插件
-    将下面的命令添加到你的 AndroidStudio 启动配置中
+ - 推荐使用 AndroidStudio 作为开发工具 
+ - 同时安装 flutter、getx 插件 
+ - 建议配置 [flutter 镜像](https://docs.flutter.cn/community/china/)
+ - 将下面的命令添加到你的 AndroidStudio 启动配置中
 
 ### 2.命令
 
 - 本项目使用 [fvm](https://fvm.app/) 管理 `flutter` 版本，安装依赖前请先安装 `fvm`，所有 `flutter` 相关命令都被 `fvm flutter` 替代
 ```shell
+# 注意运行后的warning提示：设置环境变量！
 dart pub global activate fvm
 ```
 
@@ -59,7 +61,7 @@ fvm flutter build ipa --flavor env_test -t lib/main_env_test.dart
 
 ### 4.注意点
 
-- 修改 flavorizr.yaml 文件后，请重新运行以下命令，否则修改不生效，同时请备份 main.dart、app.dart 以防被覆盖
+- 修改 [flavorizr.yaml](flavorizr.yaml) 文件后，请重新运行以下命令，否则修改不生效，同时请备份 main.dart、app.dart 以防被覆盖
 
 ```shell
 fvm flutter pub run flutter_flavorizr
