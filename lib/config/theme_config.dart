@@ -137,7 +137,7 @@ class ThemeConfig {
     inputDecorationTheme: InputDecorationTheme(
       hintStyle: TextStyle(color: n5, fontSize: 14.sp),
     ),
-    tabBarTheme: const TabBarTheme(
+    tabBarTheme: const TabBarThemeData(
       // 去除tab的bottom线条
       dividerHeight: 0,
       // 去除点击时的水波纹
