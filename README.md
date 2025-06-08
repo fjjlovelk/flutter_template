@@ -6,7 +6,7 @@ flutter项目模板
 
  - 推荐使用 AndroidStudio 作为开发工具 
  - 同时安装 flutter、getx 插件 
- - 建议配置 [flutter 镜像](https://docs.flutter.cn/community/china/)
+ - 建议配置清华大学镜像 [flutter 镜像](https://docs.flutter.cn/community/china/)
  - 将下面的命令添加到你的 AndroidStudio 启动配置中
 
 ### 2.命令
@@ -49,6 +49,11 @@ fvm flutter build apk --flavor env_test -t lib/main_env_test.dart
 ```shell
 # 替换 env_test 为你想要运行的环境，支持的环境请见 flavorizr.yaml
 fvm flutter build ipa --flavor env_test -t lib/main_env_test.dart
+```
+
+- 清除缓存
+```shell
+fvm flutter clean
 ```
 
 ### 3.依赖
