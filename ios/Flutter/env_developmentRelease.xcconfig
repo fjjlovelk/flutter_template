@@ -1,0 +1,6 @@
+#include? "Pods/Target Support Files/Pods-Runner/Pods-Runner.release.xcconfig"
+#include "Generated.xcconfig"
+
+ASSET_PREFIX=env_development
+BUNDLE_NAME=flutter_template（开发）
+BUNDLE_DISPLAY_NAME=flutter_template（开发）

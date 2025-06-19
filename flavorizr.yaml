@@ -1,0 +1,29 @@
+ide: idea
+
+flavors:
+  # 开发环境
+  env_development:
+    app:
+      name: "flutter_template（开发）"
+    android:
+      applicationId: "com.stxx.flutter_template.development"
+    ios:
+      bundleId: "com.stxx.flutterTemplate.development"
+
+  # 测试环境
+  env_test:
+    app:
+      name: "flutter_template（测试）"
+    android:
+      applicationId: "com.stxx.flutter_template.test"
+    ios:
+      bundleId: "com.stxx.flutterTemplate.test"
+
+  # 生产环境
+  env_production:
+    app:
+      name: "flutter_template"
+    android:
+      applicationId: "com.stxx.flutter_template"
+    ios:
+      bundleId: "com.stxx.flutterTemplate"
