@@ -62,6 +62,7 @@ fvm flutter clean
 - 组件库 [tdesign_flutter](https://tdesign.tencent.com/flutter/)
 - 路由、状态管理 [getx](https://github.com/jonataslaw/getx/blob/master/README.zh-cn.md)
 - 网络请求 [dio](https://github.com/cfug/dio/blob/main/dio/README-ZH.md)
+- model生成器 [freezed](https://github.com/rrousselGit/freezed/blob/master/resources/translations/zh_CN/README.md)
 - 其他依赖详见 [pubspec.yaml](pubspec.yaml)
 
 ### 4.注意点
@@ -72,11 +73,16 @@ fvm flutter clean
 fvm flutter pub run flutter_flavorizr
 ```
 
+- 添加或修改model后，请运行以下命令
+```shell
+fvm dart run build_runner build
+```
+
 - 推荐使用 AndroidStudio 插件 [FlutterAssetsGenerator](https://juejin.cn/post/6898542896274735117)
   来自动生成assets静态资源，插件配置
     - file path 为 `config`
     - file name 为 `assets_config`
     - class name 为 `AssetsConfig`
 
-- json to dart model 推荐使用这个 [网站](https://app.quicktype.io/)
+- json to dart model 推荐使用这个 [网站](https://dartj.web.app/)
 - 类、方法引入时，全部使用相对路径，避免出现项目名称

@@ -3,8 +3,7 @@ import 'dart:convert';
 import 'package:dio/dio.dart';
 
 import '../http/http_service.dart';
-import '../models/file_model.dart';
-import '../models/user_model.dart';
+import '../models/models.dart';
 
 class UserApi {
   /// 获取验证码

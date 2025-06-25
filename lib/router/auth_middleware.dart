@@ -7,7 +7,7 @@ import 'app_routes.dart';
 class AuthMiddleware extends GetMiddleware {
   @override
   RouteSettings? redirect(String? route) {
-    if (UserStore.to.isLogin) {
+    if (UserStore.to.hasToken) {
       return null;
     }
     return const RouteSettings(name: AppRoutes.login);
