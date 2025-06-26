@@ -1,4 +1,5 @@
 import 'package:dio/dio.dart';
+import 'package:flutter_template/utils/toast_util.dart';
 import 'package:get/get.dart' as getx;
 import 'package:talker_dio_logger/talker_dio_logger_interceptor.dart';
 import 'package:talker_dio_logger/talker_dio_logger_settings.dart';
@@ -91,20 +92,20 @@ class HttpService {
       case DioExceptionType.sendTimeout:
         break;
       case DioExceptionType.receiveTimeout:
-        TDToast.showFail('响应超时', context: getx.Get.context!);
+        ToastUtil.error("响应超时");
         break;
       case DioExceptionType.badCertificate:
-        TDToast.showFail('证书错误', context: getx.Get.context!);
+        ToastUtil.error("证书错误");
         break;
       case DioExceptionType.connectionError:
-        TDToast.showFail('连接错误', context: getx.Get.context!);
+        ToastUtil.error("连接错误");
         break;
       case DioExceptionType.unknown:
         // 当err.type为unknown时err.error通常不为null
-        TDToast.showFail('未知错误', context: getx.Get.context!);
+        ToastUtil.error("未知错误");
         break;
       case DioExceptionType.badResponse:
-        TDToast.showFail('服务器错误', context: getx.Get.context!);
+        ToastUtil.error("服务器错误");
         break;
       default:
         break;

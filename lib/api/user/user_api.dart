@@ -1,19 +1,19 @@
-import 'dart:convert';
-
 import 'package:dio/dio.dart';
 
-import '../http/http_service.dart';
-import '../models/models.dart';
+import '../../http/http_service.dart';
+import '../../models/file_model/file_model.dart';
+import '../../models/user_model/user_model.dart';
+import './models/login_params/login_params.dart';
 
 class UserApi {
   /// 获取验证码
-  static Future<String> getCaptchaApi() async {
+  static Future<String> getCaptcha() async {
     var response = await HttpService().get("/sys/randomImage");
     return response['result'] ?? "";
   }
 
   /// 登录
-  static Future<UserModel> loginApi(Map<String, dynamic> data) async {
+  static Future<UserModel> login(LoginParams data) async {
     // var response = await HttpService().post('/sys/mLogin', data: data);
     // return UserModel.fromJson(response?['result'] ?? json.encode({}));
     UserModel userModel = UserModel(id: '111', name: '222', token: '333');
@@ -37,6 +37,6 @@ class UserApi {
       onSendProgress: onSendProgress,
       cancelToken: cancelToken,
     );
-    return FileModel.fromJson(response ?? json.encode({}));
+    return FileModel.fromJson(response);
   }
 }

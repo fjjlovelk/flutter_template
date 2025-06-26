@@ -2,9 +2,10 @@ import 'dart:convert';
 
 import 'package:get/get.dart';
 
-import '../api/user_api.dart';
+import '../api/user/models/login_params/login_params.dart';
+import '../api/user/user_api.dart';
 import '../enums/storage_enum.dart';
-import '../models/models.dart';
+import '../models/user_model/user_model.dart';
 import '../router/app_routes.dart';
 import '../services/storage_service.dart';
 import '../utils/loading_util.dart';
@@ -42,8 +43,8 @@ class UserStore extends GetxController {
   }
 
   /// 登录
-  Future<void> handleLogin(Map<String, dynamic> data) async {
-    UserModel u = await UserApi.loginApi(data);
+  Future<void> handleLogin(LoginParams data) async {
+    UserModel u = await UserApi.login(data);
     _userInfo(u);
     StorageService.to.setString(StorageEnum.userInfo.name, jsonEncode(u));
   }

@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:device_info_plus/device_info_plus.dart';
+import 'package:flutter_template/utils/toast_util.dart';
 import 'package:get/get.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:tdesign_flutter/tdesign_flutter.dart';
@@ -24,14 +25,14 @@ class PermissionUtil {
       }
       // 永久拒绝或拒绝弹框提示
       if (permissionStatus.isPermanentlyDenied || permissionStatus.isDenied) {
-        TDToast.showWarning(message, context: Get.context!);
+        ToastUtil.warning(message);
         return false;
       }
       return false;
     }
     // 永久拒绝
     if (status.isPermanentlyDenied) {
-      TDToast.showWarning(message, context: Get.context!);
+      ToastUtil.warning(message);
       return false;
     }
     return false;
