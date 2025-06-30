@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_template/config/theme_config.dart';
+import 'package:flutter_template/utils/modal_util.dart';
 import 'package:pinyin/pinyin.dart';
 
-import '../config/theme_config.dart';
-import '../utils/modal_util.dart';
 import 'search_text_field.dart';
 
 /// 单选选择器

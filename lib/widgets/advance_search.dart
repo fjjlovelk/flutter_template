@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_template/config/theme_config.dart';
+import 'package:flutter_template/utils/modal_util.dart';
 import 'package:get/get.dart';
-
-import '../config/theme_config.dart';
-import '../utils/modal_util.dart';
 
 class AdvanceSearch extends StatelessWidget {
   /// 默认查询条件

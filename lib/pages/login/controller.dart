@@ -1,12 +1,11 @@
 import 'package:flutter_template/api/user/models/login_params/login_params.dart';
+import 'package:flutter_template/api/user/user_api.dart';
+import 'package:flutter_template/router/app_routes.dart';
+import 'package:flutter_template/store/user_store.dart';
+import 'package:flutter_template/utils/loading_util.dart';
 import 'package:flutter_template/utils/toast_util.dart';
 import 'package:get/get.dart';
-import 'package:tdesign_flutter/tdesign_flutter.dart';
 
-import '../../api/user/user_api.dart';
-import '../../router/app_routes.dart';
-import '../../store/user_store.dart';
-import '../../utils/loading_util.dart';
 import 'state.dart';
 
 class LoginController extends GetxController {
@@ -53,8 +52,10 @@ class LoginController extends GetxController {
   void getCaptcha() async {
     try {
       String res = await UserApi.getCaptcha();
-      state.captcha.value =
-          res.replaceFirst(RegExp('data:image/jpg;base64,'), '');
+      state.captcha.value = res.replaceFirst(
+        RegExp('data:image/jpg;base64,'),
+        '',
+      );
     } catch (err) {
       print('getCaptcha----$err');
     }

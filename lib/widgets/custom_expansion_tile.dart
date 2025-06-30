@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_template/config/theme_config.dart';
 import 'package:get/get.dart';
-
-import '../config/theme_config.dart';
 
 /// 可展开tile
 class CustomExpansionTile extends StatelessWidget {

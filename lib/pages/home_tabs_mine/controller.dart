@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter_template/store/user_store.dart';
 import 'package:get/get.dart';
 import 'package:tdesign_flutter/tdesign_flutter.dart';
 
-import '../../store/user_store.dart';
 import 'state.dart';
 
 class HomeTabsMineController extends GetxController {

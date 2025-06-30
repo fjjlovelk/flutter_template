@@ -2,11 +2,11 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_template/http/http_custom_overrides.dart';
+import 'package:flutter_template/services/storage_service.dart';
+import 'package:flutter_template/store/user_store.dart';
 import 'package:get/get.dart';
 
-import '../http/http_custom_overrides.dart';
-import '../services/storage_service.dart';
-import '../store/user_store.dart';
 import 'loading_util.dart';
 
 class InitAppUtil {

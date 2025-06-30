@@ -1,8 +1,8 @@
+import 'package:flutter_template/pages/home_tabs_home/controller.dart';
+import 'package:flutter_template/pages/home_tabs_message/controller.dart';
+import 'package:flutter_template/pages/home_tabs_mine/controller.dart';
 import 'package:get/get.dart';
 
-import '../home_tabs_home/controller.dart';
-import '../home_tabs_message/controller.dart';
-import '../home_tabs_mine/controller.dart';
 import 'controller.dart';
 
 class HomeTabsBinding extends Bindings {

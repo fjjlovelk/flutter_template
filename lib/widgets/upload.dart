@@ -3,12 +3,11 @@ import 'dart:io';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_template/config/theme_config.dart';
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:uuid/uuid.dart';
 import 'package:wechat_assets_picker/wechat_assets_picker.dart';
-
-import '../config/theme_config.dart';
 
 enum UploadStatusEnum {
   ready('准备上传'),
@@ -88,13 +87,14 @@ class UploadSelect extends StatelessWidget {
         actions: [
           CupertinoActionSheetAction(
             onPressed: () => onSelectPhoto(context),
-            child:
-                maxCount == -1 ? const Text('图片') : Text('图片 (最多$maxCount张)'),
+            child: maxCount == -1
+                ? const Text('图片')
+                : Text('图片 (最多$maxCount张)'),
           ),
           CupertinoActionSheetAction(
             onPressed: () => onSelectCamera(),
             child: const Text('拍照'),
-          )
+          ),
         ],
         cancelButton: CupertinoActionSheetAction(
           onPressed: onSelectCancel,
@@ -230,17 +230,9 @@ class UploadItem extends StatelessWidget {
           ),
         );
       case UploadStatusEnum.error:
-        return Icon(
-          Icons.info_rounded,
-          color: Colors.red,
-          size: 20.r,
-        );
+        return Icon(Icons.info_rounded, color: Colors.red, size: 20.r);
       case UploadStatusEnum.done:
-        return Icon(
-          Icons.check_circle,
-          color: Colors.green,
-          size: 20.r,
-        );
+        return Icon(Icons.check_circle, color: Colors.green, size: 20.r);
     }
   }
 
@@ -260,11 +252,7 @@ class UploadItem extends StatelessWidget {
             fit: StackFit.expand,
             children: [
               _buildImage(),
-              Positioned(
-                top: 0,
-                right: 0,
-                child: _buildProgress(),
-              ),
+              Positioned(top: 0, right: 0, child: _buildProgress()),
             ],
           ),
         ),

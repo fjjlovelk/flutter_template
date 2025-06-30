@@ -1,15 +1,14 @@
 import 'dart:convert';
 
+import 'package:flutter_template/api/user/models/login_params/login_params.dart';
+import 'package:flutter_template/api/user/user_api.dart';
+import 'package:flutter_template/enums/storage_enum.dart';
+import 'package:flutter_template/models/user_model/user_model.dart';
+import 'package:flutter_template/router/app_routes.dart';
+import 'package:flutter_template/services/storage_service.dart';
+import 'package:flutter_template/utils/loading_util.dart';
+import 'package:flutter_template/utils/logger_util.dart';
 import 'package:get/get.dart';
-
-import '../api/user/models/login_params/login_params.dart';
-import '../api/user/user_api.dart';
-import '../enums/storage_enum.dart';
-import '../models/user_model/user_model.dart';
-import '../router/app_routes.dart';
-import '../services/storage_service.dart';
-import '../utils/loading_util.dart';
-import '../utils/logger_util.dart';
 
 class UserStore extends GetxController {
   static UserStore get to => Get.find();

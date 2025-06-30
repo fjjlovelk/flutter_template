@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
-
-import '../config/theme_config.dart';
+import 'package:flutter_template/config/theme_config.dart';
 
 class LoadingUtil {
   LoadingUtil() {

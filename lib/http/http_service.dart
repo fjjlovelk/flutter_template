@@ -1,12 +1,10 @@
 import 'package:dio/dio.dart';
+import 'package:flutter_template/config/http_config.dart';
+import 'package:flutter_template/store/user_store.dart';
 import 'package:flutter_template/utils/toast_util.dart';
 import 'package:get/get.dart' as getx;
 import 'package:talker_dio_logger/talker_dio_logger_interceptor.dart';
 import 'package:talker_dio_logger/talker_dio_logger_settings.dart';
-import 'package:tdesign_flutter/tdesign_flutter.dart';
-
-import '../config/http_config.dart';
-import '../store/user_store.dart';
 
 class HttpService {
   static final HttpService _instance = HttpService._internal();
@@ -47,41 +45,43 @@ class HttpService {
     );
 
     // 自定义拦截器
-    dio.interceptors.add(InterceptorsWrapper(
-      // 请求拦截
-      onRequest: (RequestOptions options, RequestInterceptorHandler handler) {
-        options.headers['AppTag'] = 'mobile';
-        if (getx.Get.isRegistered<UserStore>() && UserStore.to.hasToken) {
-          options.headers['Authorization'] = UserStore.to.token;
-        }
-        return handler.next(options);
-      },
-      // 响应拦截
-      onResponse: (Response response, ResponseInterceptorHandler handler) {
-        if (response.data['success'] == true) {
-          final newResponse = Response(
-            data: response.data,
-            statusCode: response.statusCode,
+    dio.interceptors.add(
+      InterceptorsWrapper(
+        // 请求拦截
+        onRequest: (RequestOptions options, RequestInterceptorHandler handler) {
+          options.headers['AppTag'] = 'mobile';
+          if (getx.Get.isRegistered<UserStore>() && UserStore.to.hasToken) {
+            options.headers['Authorization'] = UserStore.to.token;
+          }
+          return handler.next(options);
+        },
+        // 响应拦截
+        onResponse: (Response response, ResponseInterceptorHandler handler) {
+          if (response.data['success'] == true) {
+            final newResponse = Response(
+              data: response.data,
+              statusCode: response.statusCode,
+              requestOptions: response.requestOptions,
+              headers: response.headers,
+            );
+            handler.resolve(newResponse);
+            return;
+          }
+          throw DioException(
+            type: DioExceptionType.badResponse,
+            message: response.data?['msg'] ?? '服务器错误',
             requestOptions: response.requestOptions,
-            headers: response.headers,
+            response: null,
+            error: null,
           );
-          handler.resolve(newResponse);
-          return;
-        }
-        throw DioException(
-          type: DioExceptionType.badResponse,
-          message: response.data?['msg'] ?? '服务器错误',
-          requestOptions: response.requestOptions,
-          response: null,
-          error: null,
-        );
-      },
-      // 错误拦截
-      onError: (DioException e, ErrorInterceptorHandler handler) {
-        onError(e);
-        return handler.next(e);
-      },
-    ));
+        },
+        // 错误拦截
+        onError: (DioException e, ErrorInterceptorHandler handler) {
+          onError(e);
+          return handler.next(e);
+        },
+      ),
+    );
   }
 
   /// 错误处理

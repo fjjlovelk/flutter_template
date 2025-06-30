@@ -1,8 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
-import '../config/theme_config.dart';
+import 'package:flutter_template/config/theme_config.dart';
 
 class ModalUtil {
   /// 弹框header

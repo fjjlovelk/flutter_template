@@ -1,8 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:easy_refresh/easy_refresh.dart';
 import 'package:flutter/material.dart';
-
-import '../utils/logger_util.dart';
+import 'package:flutter_template/utils/logger_util.dart';
 
 enum CustomPagingStatus { reload, loading, refresh }
 

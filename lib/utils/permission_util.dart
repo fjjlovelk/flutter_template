@@ -1,15 +1,15 @@
 import 'dart:io';
 
 import 'package:device_info_plus/device_info_plus.dart';
+import 'package:flutter_template/utils/logger_util.dart';
 import 'package:flutter_template/utils/toast_util.dart';
-import 'package:get/get.dart';
 import 'package:permission_handler/permission_handler.dart';
-import 'package:tdesign_flutter/tdesign_flutter.dart';
-import '../utils/logger_util.dart';
 
 class PermissionUtil {
   static Future<bool> _requestPermission(
-      Permission permission, String message) async {
+    Permission permission,
+    String message,
+  ) async {
     PermissionStatus status = await permission.status;
     LoggerUtil.info('PermissionStatus---->$status}');
     // 允许/限制性允许
@@ -70,7 +70,7 @@ class PermissionUtil {
       _requestPermission(Permission.storage, message);
 
   /// 媒体位置权限
-  static Future<bool> accessMediaLocation(
-          {String message = '暂无媒体位置权限，请前往设置开启权限'}) =>
-      _requestPermission(Permission.accessMediaLocation, message);
+  static Future<bool> accessMediaLocation({
+    String message = '暂无媒体位置权限，请前往设置开启权限',
+  }) => _requestPermission(Permission.accessMediaLocation, message);
 }

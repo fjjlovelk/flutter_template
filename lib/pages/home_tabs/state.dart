@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_template/pages/home_tabs_home/view.dart';
+import 'package:flutter_template/pages/home_tabs_message/view.dart';
+import 'package:flutter_template/pages/home_tabs_mine/view.dart';
+import 'package:flutter_template/widgets/keep_alive_wrapper.dart';
 import 'package:get/get.dart';
-
-import '../../widgets/keep_alive_wrapper.dart';
-import '../home_tabs_home/view.dart';
-import '../home_tabs_message/view.dart';
-import '../home_tabs_mine/view.dart';
 
 class HomeTabsState {
   /// pageView controller
@@ -26,5 +25,6 @@ class HomeTabsState {
   ];
 
   int get currentTab => _currentTab.value;
+
   set currentTab(int value) => _currentTab.value = value;
 }

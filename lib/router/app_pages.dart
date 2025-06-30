@@ -1,11 +1,11 @@
+import 'package:flutter_template/pages/home_tabs/binding.dart';
+import 'package:flutter_template/pages/home_tabs/view.dart';
+import 'package:flutter_template/pages/login/binding.dart';
+import 'package:flutter_template/pages/login/view.dart';
+import 'package:flutter_template/pages/unknown/binding.dart';
+import 'package:flutter_template/pages/unknown/view.dart';
 import 'package:get/get.dart';
 
-import '../pages/home_tabs/binding.dart';
-import '../pages/home_tabs/view.dart';
-import '../pages/login/binding.dart';
-import '../pages/login/view.dart';
-import '../pages/unknown/binding.dart';
-import '../pages/unknown/view.dart';
 import 'app_routes.dart';
 import 'auth_middleware.dart';
 

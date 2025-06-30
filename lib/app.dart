@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_template/router/app_pages.dart';
+import 'package:flutter_template/utils/init_app_util.dart';
 import 'package:get/get.dart';
 
-import '../router/app_pages.dart';
-import '../utils/init_app_util.dart';
 import 'config/theme_config.dart';
 import 'flavors.dart';
 

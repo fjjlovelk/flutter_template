@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
-import '../config/theme_config.dart';
+import 'package:flutter_template/config/theme_config.dart';
 
 /// ListTile扩展
 class WidgetField extends StatelessWidget {
@@ -76,7 +75,10 @@ class WidgetField extends StatelessWidget {
         minLeadingWidth: 0,
         horizontalTitleGap: 2.r,
         leading: required
-            ? Text('*', style: TextStyle(color: Colors.red, fontSize: 18.sp))
+            ? Text(
+                '*',
+                style: TextStyle(color: Colors.red, fontSize: 18.sp),
+              )
             : null,
         trailing: trailing,
         title: content == null

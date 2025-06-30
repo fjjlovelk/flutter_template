@@ -2,8 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
-import '../config/theme_config.dart';
+import 'package:flutter_template/config/theme_config.dart';
 
 /// 搜索框
 class SearchTextField extends StatefulWidget {

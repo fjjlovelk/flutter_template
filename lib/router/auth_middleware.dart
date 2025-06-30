@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_template/store/user_store.dart';
 import 'package:get/get.dart';
 
-import '../store/user_store.dart';
 import 'app_routes.dart';
 
 class AuthMiddleware extends GetMiddleware {

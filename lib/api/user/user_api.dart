@@ -1,9 +1,8 @@
 import 'package:dio/dio.dart';
-
-import '../../http/http_service.dart';
-import '../../models/file_model/file_model.dart';
-import '../../models/user_model/user_model.dart';
-import './models/login_params/login_params.dart';
+import 'package:flutter_template/api/user/models/login_params/login_params.dart';
+import 'package:flutter_template/http/http_service.dart';
+import 'package:flutter_template/models/file_model/file_model.dart';
+import 'package:flutter_template/models/user_model/user_model.dart';
 
 class UserApi {
   /// 获取验证码
