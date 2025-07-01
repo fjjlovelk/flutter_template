@@ -16,6 +16,7 @@ class App extends StatelessWidget {
     return ScreenUtilInit(
       designSize: const Size(375, 667),
       builder: (context, child) {
+        ThemeConfig.init(context);
         return GetMaterialApp(
           title: F.title,
           builder: EasyLoading.init(

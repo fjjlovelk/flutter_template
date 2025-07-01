@@ -6,19 +6,19 @@ import 'package:tdesign_flutter/tdesign_flutter.dart';
 
 class ThemeConfig {
   /// 默认颜色
-  static Color primary = TDTheme.of(Get.context!).brandColor5;
+  static late Color primary;
 
   /// 信息色
-  static Color info = TDTheme.of(Get.context!).grayColor5;
+  static late Color info;
 
   /// 成功色
-  static Color success = TDTheme.of(Get.context!).successColor5;
+  static late Color success;
 
   /// 报错色
-  static Color error = TDTheme.of(Get.context!).errorColor5;
+  static late Color error;
 
   /// 警告色
-  static Color warning = TDTheme.of(Get.context!).warningColor5;
+  static late Color warning;
 
   /// 背景色
   static Color n1 = const Color(0xffF7F8FA);
@@ -97,6 +97,16 @@ class ThemeConfig {
 
   /// 底部安全区域高度
   static final safeAreaBottom = MediaQuery.of(Get.context!).padding.bottom;
+
+  /// 初始化主题色
+  static void init(BuildContext context) {
+    final theme = TDTheme.of(context);
+    primary = theme.brandColor5;
+    info = theme.grayColor5;
+    success = theme.successColor5;
+    error = theme.errorColor5;
+    warning = theme.warningColor5;
+  }
 
   static ThemeData themeData = ThemeData(
     useMaterial3: true,
